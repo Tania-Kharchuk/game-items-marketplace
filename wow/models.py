@@ -52,7 +52,7 @@ class InteractionType(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    owner = models.ForeignKey(Gamer, on_delete=models.CASCADE)
+    owner = models.ForeignKey(Gamer, on_delete=models.CASCADE, related_name="items")
     price = models.DecimalField(max_digits=4, decimal_places=2)
     type = models.ForeignKey(ItemType, on_delete=models.CASCADE)
     interaction_type = models.ForeignKey(
