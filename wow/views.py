@@ -71,3 +71,8 @@ class GamerListView(LoginRequiredMixin, generic.ListView):
     template_name = "wow/gamer_list.html"
     paginate_by = 10
     queryset = Gamer.objects.select_related("playable_race", "playable_class")
+
+
+class GamerDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Gamer
+    queryset = Gamer.objects.select_related("playable_race", "playable_class")
