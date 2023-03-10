@@ -11,6 +11,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Type</th>
         <th>Price</th>
       </tr>
 
@@ -20,7 +21,10 @@
               {{ item.id }}
           </td>
           <td>
-              {{ item.name }}
+              <a href="{% url "wow:item-detail" pk=item.id %} ">{{ item.name }}</a>
+          </td>
+          <td>
+              {{ item.type}}
           </td>
           <td>
               {{ item.price }}

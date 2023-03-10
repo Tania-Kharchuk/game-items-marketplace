@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ item.name }}
+  </h1>
+  <h3>
+    Type: {{ item.type }}
+  </h3>
+  <h3>
+    Price: {{ item.price }}, {{ item.interaction_type }}
+  </h3>
+  <p>
+    Owner: {{ item.owner.username }} ({{ item.owner.playable_race }}, {{ item.owner.playable_class }})
+  </p>
+  <p>
+    Description: {{ item.description }}
+  </p>
+  <p>
+    Created at: {{ item.created_at }}
+  </p>
+{% endblock %}
