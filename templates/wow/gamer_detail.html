@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ gamer.username }}
+  </h1>
+  <h3>
+    Faction: {{ gamer.playable_race.faction }}
+  </h3>
+  <h3>
+    Playable race: {{ gamer.playable_race.name }}
+  </h3>
+  <h3>
+    Playable class: {{ gamer.playable_class.name }}
+  </h3>
+  <div class="ml-3">
+      <h4>{{ gamer.username }}'s Items</h4>
+
+      {% for item in gamer.item_set.all %}
+          <hr>
+          <p><strong>Name:</strong> {{ item.name }}</p>
+          <p><strong>Type:</strong> {{ item.type }}</p>
+          <p class="text-muted"><strong>Id:</strong> {{item.id}}</p>
+
+      {% empty %}
+        <p>No Items!</p>
+      {% endfor %}
+    </div>
+{% endblock %}

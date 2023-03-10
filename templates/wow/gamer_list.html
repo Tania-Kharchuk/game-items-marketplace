@@ -20,7 +20,7 @@
               {{ gamer.id }}
           </td>
           <td>
-              {{ gamer.username }}
+              <a href="{% url "wow:gamer-detail" pk=gamer.id %} ">{{ gamer.username }}</a>
           </td>
           <td>
               {{ gamer.playable_race }}
