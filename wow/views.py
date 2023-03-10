@@ -61,6 +61,10 @@ class ItemListView(LoginRequiredMixin, generic.ListView):
     # queryset = Item.objects.select_related("owner", "type") here or in details view?
 
 
+class ItemDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Item
+
+
 class GamerListView(LoginRequiredMixin, generic.ListView):
     model = Gamer
     context_object_name = "gamer_list"

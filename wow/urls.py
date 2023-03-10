@@ -6,7 +6,8 @@ from wow.views import (index,
                        ItemTypeListView,
                        InteractionTypeListView,
                        ItemListView,
-                       GamerListView)
+                       GamerListView,
+                       ItemDetailView)
 
 
 urlpatterns = [
@@ -16,6 +17,7 @@ urlpatterns = [
     path("item_types/", ItemTypeListView.as_view(), name="item-type-list"),
     path("interaction_types/", InteractionTypeListView.as_view(), name="interaction-type-list"),
     path("items/", ItemListView.as_view(), name="item-list"),
+    path("items/<int:pk>/", ItemDetailView.as_view(), name="item-detail"),
     path("gamers/", GamerListView.as_view(), name="gamer-list"),
     ]
 
