@@ -76,3 +76,8 @@ class GamerListView(LoginRequiredMixin, generic.ListView):
 class GamerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Gamer
     queryset = Gamer.objects.select_related("playable_race", "playable_class")
+
+
+class GamerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Gamer
+    form_class = GamerCreationForm
