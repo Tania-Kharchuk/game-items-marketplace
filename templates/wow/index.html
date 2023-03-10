@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>World of Warcraft Items Marketplace Homepage</h1>
+    <p>Amazingly rare WoW items in one click!</p>
+    <h2>Dynamic content</h2>
+    <p>The World of Warcraft Items Marketplace has the following record counts:</p>
+    <ul>
+        <li><strong>Gamers:</strong> {{ num_gamers }}</li>
+        <li><strong>Items:</strong> {{ num_items }}</li>
+        <li><strong>Items' types:</strong> {{ num_item_types }}</li>
+    </ul>
+
+    <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
+
+{% endblock %}
