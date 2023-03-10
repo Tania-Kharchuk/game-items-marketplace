@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
-from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass
+from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass, InteractionType
 
 
 def index(request):
@@ -43,4 +43,11 @@ class ItemTypeListView(LoginRequiredMixin, generic.ListView):
     model = ItemType
     context_object_name = "item_type_list"
     template_name = "wow/item_type_list.html"
+    paginate_by = 10
+
+
+class InteractionTypeListView(LoginRequiredMixin, generic.ListView):
+    model = InteractionType
+    context_object_name = "interaction_type_list"
+    template_name = "wow/interaction_type_list.html"
     paginate_by = 10
