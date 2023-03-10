@@ -3,6 +3,9 @@
 {% block content %}
   <h1>
     Gamers List
+    <a href="{% url 'wow:gamer-create' %}" class="btn btn-primary link-to-page">
+        Create
+    </a>
   </h1>
 
   {% if gamer_list %}

@@ -22,7 +22,7 @@ urlpatterns = [
     path("items/<int:pk>/", ItemDetailView.as_view(), name="item-detail"),
     path("gamers/", GamerListView.as_view(), name="gamer-list"),
     path("gamers/<int:pk>/", GamerDetailView.as_view(), name="gamer-detail"),
-    path("gamers/<int:pk>/create/", GamerCreateView.as_view(), name="gamer-create"),
+    path("gamers/create/", GamerCreateView.as_view(), name="gamer-create"),
     ]
 
 app_name = "wow"

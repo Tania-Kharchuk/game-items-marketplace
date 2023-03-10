@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
+from wow.forms import GamerCreationForm
 from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass, InteractionType
 
 
