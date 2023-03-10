@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 
-from wow.models import Gamer, Item, ItemType, PlayableRace
+from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass
 
 
 def index(request):
@@ -28,4 +28,11 @@ class PlayableRaceListView(generic.ListView):
     model = PlayableRace
     context_object_name = "playable_race_list"
     template_name = "wow/playable_race_list.html"
+    paginate_by = 10
+
+
+class PlayableClassListView(generic.ListView):
+    model = PlayableClass
+    context_object_name = "playable_class_list"
+    template_name = "wow/playable_class_list.html"
     paginate_by = 10
