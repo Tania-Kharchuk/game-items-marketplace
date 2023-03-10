@@ -51,3 +51,11 @@ class InteractionTypeListView(LoginRequiredMixin, generic.ListView):
     context_object_name = "interaction_type_list"
     template_name = "wow/interaction_type_list.html"
     paginate_by = 10
+
+
+class ItemListView(LoginRequiredMixin, generic.ListView):
+    model = Item
+    context_object_name = "item_list"
+    template_name = "wow/item_list.html"
+    paginate_by = 10
+    # queryset = Item.objects.select_related("owner", "type") here or in details view?
