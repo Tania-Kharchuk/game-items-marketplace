@@ -89,3 +89,8 @@ class GamerPlayableRaceClassUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Gamer
     form_class = GamerPlayableRaceClassUpdateForm
     success_url = reverse_lazy("wow:gamer-list")
+
+
+class GamerDeleteView(LoginRequiredMixin, generic.CreateView):
+    model = Gamer
+    success_url = reverse_lazy("")

@@ -10,7 +10,8 @@ from wow.views import (index,
                        ItemDetailView,
                        GamerDetailView,
                        GamerCreateView,
-                       GamerPlayableRaceClassUpdateView)
+                       GamerPlayableRaceClassUpdateView,
+                       GamerDeleteView)
 
 
 urlpatterns = [
@@ -25,6 +26,7 @@ urlpatterns = [
     path("gamers/<int:pk>/", GamerDetailView.as_view(), name="gamer-detail"),
     path("gamers/create/", GamerCreateView.as_view(), name="gamer-create"),
     path("gamers/<int:pk>/update", GamerPlayableRaceClassUpdateView.as_view(), name="gamer-update"),
+    path("gamers/<int:pk>/delete", GamerDeleteView.as_view(), name="gamer-delete"),
     ]
 
 app_name = "wow"
