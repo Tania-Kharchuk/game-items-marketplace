@@ -1,8 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
-from wow.forms import GamerCreationForm
+from wow.forms import GamerCreationForm, GamerPlayableRaceClassUpdateForm
 from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass, InteractionType
 
 
@@ -82,3 +83,9 @@ class GamerDetailView(LoginRequiredMixin, generic.DetailView):
 class GamerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Gamer
     form_class = GamerCreationForm
+
+
+class GamerPlayableRaceClassUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Gamer
+    form_class = GamerPlayableRaceClassUpdateForm
+    success_url = reverse_lazy("wow:gamer-list")
