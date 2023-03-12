@@ -3,6 +3,11 @@
 {% block content %}
   <h1>
     {{ gamer.username }}
+    {% if user.id == gamer.id%}
+    <a href="{% url 'wow:gamer-update' pk=gamer.id %}" class="btn btn-secondary link-to-page">
+      Update Playable Race or Class
+    </a>
+  {% endif %}
   </h1>
   <h3>
     Faction: {{ gamer.playable_race.faction }}
