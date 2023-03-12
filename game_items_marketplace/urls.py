@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("wow.urls", namespace="wow")),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
