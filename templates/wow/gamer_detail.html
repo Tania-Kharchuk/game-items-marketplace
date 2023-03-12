@@ -7,6 +7,9 @@
     <a href="{% url 'wow:gamer-update' pk=gamer.id %}" class="btn btn-secondary link-to-page">
       Update Playable Race or Class
     </a>
+    <a href="{% url 'wow:gamer-delete' pk=gamer.id %}" class="btn btn-danger link-to-page">
+      Delete Gamer
+    </a>
   {% endif %}
   </h1>
   <h3>
