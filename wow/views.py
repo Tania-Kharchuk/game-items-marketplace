@@ -80,9 +80,10 @@ class GamerDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Gamer.objects.select_related("playable_race", "playable_class")
 
 
-class GamerCreateView(LoginRequiredMixin, generic.CreateView):
+class GamerCreateView(generic.CreateView):
     model = Gamer
     form_class = GamerCreationForm
+    success_url = reverse_lazy("wow:index")
 
 
 class GamerPlayableRaceClassUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -93,4 +94,4 @@ class GamerPlayableRaceClassUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class GamerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Gamer
-    success_url = reverse_lazy("")
+    success_url = reverse_lazy("wow:index")
