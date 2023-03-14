@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 {% load crispy_forms_filters %}
 
+{% block title %} Sign UP {% endblock %}
+
+{% block body_class %} sign-in-basic {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
 {% block content %}
-    <div class="page-header align-items-start min-vh-100" style="background-image: url('{{ ASSETS_ROOT }}/img/wow2.jpg')">
+
+  <div class="page-header align-items-start min-vh-100" style="background-image: url('{{ ASSETS_ROOT }}/img/wow2.jpg')">
     <span class="mask bg-gradient-dark opacity-6"></span>
     <div class="container my-auto">
       <div class="row">
@@ -14,11 +22,17 @@
               </div>
             </div>
             <div class="card-body">
-     <form method="post" role="form" class="text-start">
+{#                <form action="" method="post" novalidate>#}
+{#                  {% csrf_token %}#}
+{#                  {{ form|crispy }}#}
+{##}
+{#                  <input type="submit" value="Submit" class="btn btn-primary">#}
+{#                </form>#}
+              <form role="form" class="text-start">
                   {% csrf_token %}
                 <div class="input-group input-group-outline my-3">
                   <label class="form-label">Username</label>
-                  <input class="form-control" name="username">
+                  <input class="form-control" name="name">
                 </div>
                 <div class="input-group input-group-outline my-3">
                   <label class="form-label">Email</label>
@@ -26,22 +40,30 @@
                 </div>
                 <div class="input-group input-group-outline mb-3">
                   <label class="form-label">Password</label>
-                  <input type="password" class="form-control" name="password1" id="password">
+                  <input type="password" class="form-control" name="password">
                 </div>
                 <div class="form-check form-switch d-flex align-items-center mb-3">
                   <input class="form-check-input" type="checkbox" id="rememberMe">
                   <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
                 </div>
                 <div class="text-center">
-{#                  <a href="{% url 'wow:index'%}" class="text-primary text-gradient font-weight-bold">Sign UP</a>#}
+                  <a href="{% url 'wow:index'%}" class="text-primary text-gradient font-weight-bold">Sign UP</a>
                   <button type="submit" value="Submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign UP</button>
                 </div>
-     </form>>
-  </div>
+                <p class="mt-4 text-sm text-center">
+                  Already have an account?
+                  <a href="{% url 'login'%}?next={{request.path}}" class="text-primary text-gradient font-weight-bold">Log IN</a>
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
   </div>
-{% endblock %}
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
