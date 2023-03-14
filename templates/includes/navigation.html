@@ -50,12 +50,27 @@
                     </div>
                   </div>
                 </li>
+
                 {% if user.is_authenticated %}
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2 text-md">account_box</i>
+                    Accounts
+                    <img src="{{ ASSETS_ROOT }}/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="{% url "wow:gamer-detail" pk=user.id %}" class="dropdown-item border-radius-md">
+                        <span>My profile</span>
+                      </a>
+                    </div>
+                  </div>
+                </li>
                 <li class="nav-item ms-lg-auto">
                     <a class="nav-link nav-link-icon me-2"
                       href="{% url 'logout'%}?next={{request.path}}">
                       <i class="fa fa-sign-out me-1"></i>
-                      <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign OUT">Logout</p>
+                      <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom">Logout</p>
                     </a>
                   </li>
                 {% else %}
@@ -63,7 +78,7 @@
                   <a href="{% url 'login'%}?next={{request.path}}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Log in</a>
                 </li>
                 <li class="nav-item my-auto ms-3 ms-lg-0">
-                  <a href="{% url "wow:gamer-create"%}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Sign Up</a>
+                  <a href="{% url 'wow:gamer-create'%}" class="btn btn-sm  bg-gradient-primary  mb-0 me-1 mt-2 mt-md-0">Sign Up</a>
                 </li>
                 {% endif %}
               </ul>
