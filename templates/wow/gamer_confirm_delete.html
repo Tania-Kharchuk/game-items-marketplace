@@ -1,10 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Are You sure You want to delete gamer?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
 
-    <input type="submit" value="Yes" class="btn btn-danger">
-  </form>
+    {% include 'includes/navigation.html' %}
+
+<div class="container mt-9">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+      <div class="alert alert-primary text-white font-weight-bold p-3 py-4" role="alert">
+        <h4 class="alert-heading">Are You absolutely sure You want to delete your profile?</h4>
+        <p>Please note that there is no option to restore the profile or its fata nor reuse the username once it's deleted.</p>
+        <hr>
+        <div class="buttons text-center">
+          <form action="" method="post">
+
+            {% csrf_token %}
+
+            <input type="submit" value="Delete" class="btn btn-white w-auto me-2">
+            <a href="{% url 'wow:gamer-detail' pk=gamer.id %}" class="btn btn-dark w-auto me-2">
+                Cancel
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {% include 'includes/footer.html' %}
+
 {% endblock %}
