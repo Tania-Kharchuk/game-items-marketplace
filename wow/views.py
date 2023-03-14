@@ -71,7 +71,7 @@ class GamerListView(LoginRequiredMixin, generic.ListView):
     model = Gamer
     context_object_name = "gamer_list"
     template_name = "wow/gamer_list.html"
-    paginate_by = 10
+    paginate_by = 4
     queryset = Gamer.objects.select_related("playable_race", "playable_class")
 
 
@@ -83,6 +83,7 @@ class GamerDetailView(LoginRequiredMixin, generic.DetailView):
 class GamerCreateView(generic.CreateView):
     model = Gamer
     form_class = GamerCreationForm
+    template_name = "registration/registration.html"
     success_url = reverse_lazy("wow:index")
 
 
