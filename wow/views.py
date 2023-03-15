@@ -37,7 +37,6 @@ class PlayableClassListView(generic.ListView):
     model = PlayableClass
     context_object_name = "playable_class_list"
     template_name = "wow/playable_class_list.html"
-    paginate_by = 10
 
 
 class ItemTypeListView(LoginRequiredMixin, generic.ListView):
