@@ -3,154 +3,128 @@
 {% block content %}
 
     {% include 'includes/navigation.html' %}
-{#  <h1>#}
-{#    Playable Classes List#}
-{#  </h1>#}
-{##}
-{#  {% if playable_class_list %}#}
-{#    <table class="table">#}
-{#      <tr>#}
-{#        <th>ID</th>#}
-{#        <th>Name</th>#}
-{#      </tr>#}
-{##}
-{#      {% for playable_class in playable_class_list %}#}
-{#        <tr>#}
-{#          <td>#}
-{#              {{ playable_class.id }}#}
-{#          </td>#}
-{#          <td>#}
-{#              {{ playable_class.name }}#}
-{#          </td>#}
-{#        </tr>#}
-{#      {% endfor %}#}
-{#    </table>#}
-{##}
-{#  {% else %}#}
-{#      <p>There are no Playable Classes in the service.</p>#}
-{#  {% endif %}#}
 
-  <section class="my-5 py-5">
-      <div class="container">
-        <div class="row">
-          <div class="row text-center my-sm-5 mt-5">
-            <div class="col-lg-6 mx-auto">
-              <h2 class="text-primary">Classes</h2>
+<section class="my-5 py-5">
+  <div class="container">
+    <div class="row">
+      <div class="row text-center my-sm-5 mt-5">
+        <div class="col-lg-6 mx-auto">
+          <h2 class="text-primary">Classes</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/warrior.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Warrior</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/paladin.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Paladin</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/hunter.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Hunter</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/rogue.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Rogue</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/priest.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Priest</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/shaman.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Shaman</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/mage.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Mage</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/warlock.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Warlock</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/druid.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Druid</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/knight.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Death knight</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/demon.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Demon hunter</h6>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card move-on-hover">
+              <img class="w-100" src="{{ ASSETS_ROOT }}/img/evoker.jpg" alt="aboutus">
+            </div>
+            <div class="mt-2 ms-2">
+              <h6 class="mb-0">Evoker</h6>
             </div>
           </div>
         </div>
       </div>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="row mt-4">
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/warrior.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Warrior</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/paladin.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Paladin</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/hunter.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Hunter</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/rogue.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Rogue</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/priest.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Priest</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/shaman.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Shaman</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/mage.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Mage</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/warlock.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Warlock</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/druid.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Druid</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/knight.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Death knight</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/demon.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Demon hunter</h6>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card move-on-hover">
-                  <img class="w-100" src="{{ ASSETS_ROOT }}/img/evoker.jpg" alt="aboutus">
-                </div>
-                <div class="mt-2 ms-2">
-                  <h6 class="mb-0">Evoker</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mx-auto mt-md-0 mt-5">
-            <div class="position-sticky" style="top:100px !important">
-              <h4 class="">What is your calling?</h4>
-              <h6 class="text-secondary font-weight-normal">From knights in shiny armor to skulking stalkers and cunning spellcasters, each class in World of Warcraft presents unique challenges and gameplay for you to master. </h6>
-            </div>
-          </div>
+      <div class="col-md-3 mx-auto mt-md-0 mt-5">
+        <div class="position-sticky" style="top:100px !important">
+          <h3>WHAT IS YOUR CALLING?</h3>
+          <h6 class="text-secondary font-weight-normal pe-3">From knights in shiny armor to skulking stalkers and cunning spellcasters, each class in World of Warcraft presents unique challenges and gameplay for you to master. </h6>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+  </section>
 
   {% include 'includes/footer.html' %}
 
