@@ -31,7 +31,6 @@ class PlayableRaceListView(generic.ListView):
     model = PlayableRace
     context_object_name = "playable_race_list"
     template_name = "wow/playable_race_list.html"
-    paginate_by = 10
 
 
 class PlayableClassListView(generic.ListView):
