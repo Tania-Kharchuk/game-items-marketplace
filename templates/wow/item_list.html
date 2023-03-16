@@ -4,41 +4,6 @@
 {% block content %}
 
   {% include 'includes/navigation.html' %}
-{#  <h1>#}
-{#    Items List#}
-{#    </a>#}
-{#  </h1>#}
-{##}
-{#  {% if item_list %}#}
-{#    <table class="table">#}
-{#      <tr>#}
-{#        <th>ID</th>#}
-{#        <th>Name</th>#}
-{#        <th>Type</th>#}
-{#        <th>Price</th>#}
-{#      </tr>#}
-{##}
-{#      {% for item in item_list %}#}
-{#        <tr>#}
-{#          <td>#}
-{#              {{ item.id }}#}
-{#          </td>#}
-{#          <td>#}
-{#              <a href="{% url "wow:item-detail" pk=item.id %} ">{{ item.name }}</a>#}
-{#          </td>#}
-{#          <td>#}
-{#              {{ item.type}}#}
-{#          </td>#}
-{#          <td>#}
-{#              {{ item.price }}#}
-{#          </td>#}
-{#        </tr>#}
-{#      {% endfor %}#}
-{#    </table>#}
-{##}
-{#  {% else %}#}
-{#      <p>There are no Items in the service.</p>#}
-{#  {% endif %}#}
 
 <div class="container mt-8">
     <div class="row flex-lg-nowrap">
@@ -53,6 +18,7 @@
                       <th>#</th>
                       <th>Name</th>
                       <th>Type</th>
+                      <th>Price</th>
                       <th>Creation date</th>
                       <th>Actions</th>
                     </tr>
@@ -63,14 +29,15 @@
                       <td class="text-nowrap align-middle text-center">{{ item.id }} </td>
                       <td class="text-nowrap align-middle">{{ item.name }} </td>
                       <td class="text-nowrap align-middle text-center">{{ item.type }}</td>
+                      <td class="text-nowrap align-middle text-center">{{ item.price }}</td>
                       <td class="text-nowrap align-middle"><span>{{ item.created_at }}</span></td>
                       <td class="text-center align-middle">
                         {% if item.owner.id == user.id %}
                         <div class="btn-group mt-1">
-                          <a href="{% url 'wow:item-update' pk=item.pk %}" class="btn btn-outline-secondary px-3">
+                          <a href="{% url 'wow:item-update' pk=item.pk %}" class="btn btn-outline-secondary px-2">
                             Update
                           </a>
-                          <a href="{% url 'wow:item-delete' pk=item.pk %}" class="btn btn-outline-primary px-3">
+                          <a href="{% url 'wow:item-delete' pk=item.pk %}" class="btn btn-outline-primary px-2">
                             <i class="fa fa-trash"></i>
                           </a>
                         </div>
