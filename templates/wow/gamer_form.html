@@ -1,90 +1,41 @@
 {% extends "base.html" %}
 
-{% block title %} Sign UP {% endblock %}
-
-{% block body_class %} sign-in-basic {% endblock %}
+{% load crispy_forms_filters %}
 
 {% block content %}
 
-  {% include 'includes/navigation-transparent.html' %}
+    {% include 'includes/navigation.html' %}
 
-  <div class="page-header align-items-start min-vh-100" style="background-image: url('{{ ASSETS_ROOT }}/img/wow2.jpg')">
-    <span class="mask bg-gradient-dark opacity-6"></span>
-    <div class="container my-auto">
-      <div class="row">
-        <div class="col-lg-4 col-md-8 col-12 mx-auto">
-          <div class="card z-index-0 fadeIn3 fadeInBottom">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
-                  World of Warcraft Items Marketplace
-                </h4>
-                <div class="row mt-3">
-                  <p class="mb-0 text-white text-center">
-                    {% if msg %}
-                      {{ msg | safe }}
-                    {% else %}
-                      Enter username and password to register
-                    {% endif %}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-
-              {% if not success %}
-
-                <form role="form" method="post" action="" novalidate>
-
-                  {% csrf_token %}
-
-                  <div class="input-group input-group-outline mb-3">
-                    {{ form.username }}
-                  </div>
-                  <span class="text-danger">{{ form.username.errors }}</span>
-
-                  <div class="input-group input-group-outline mb-3">
-                    {{ form.password1 }}
-                  </div>
-                  <span class="text-danger">{{ form.password1.errors }}</span>
-
-                  <div class="input-group input-group-outline mb-3">
-                    {{ form.password2 }}
-                  </div>
-                  <span class="text-danger">{{ form.password2.errors }}</span>
-
-                  <div class="form-check form-check-info text-start ps-0">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      I agree with the Terms and Conditions
-                    </label>
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" name="register"
-                            class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
-                  </div>
-                  <p class="mt-4 text-sm text-center">
-                    Already have an account?
-                    <a href="{% url 'login' %}" class="text-primary text-gradient font-weight-bold">Log IN</a>
-                  </p>
-                </form>
-
-              {% else %}
-
-                  <p class="mt-4 text-sm text-center">
-                    <a href="{% url 'login' %}" class="text-primary text-gradient font-weight-bold">Sign IN</a>
-                  </p>
-
-              {% endif %}
-
-            </div>
-          </div>
+<div class="container mt-7">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+      <div class="card p-3 py-4">
+        <div class="text-center">
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3b4e7cc7-bd82-461e-bb62-dabd45a1f8c3/d4uye6s-b136850a-21b1-493a-ab4a-91703440f7d6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNiNGU3Y2M3LWJkODItNDYxZS1iYjYyLWRhYmQ0NWExZjhjM1wvZDR1eWU2cy1iMTM2ODUwYS0yMWIxLTQ5M2EtYWI0YS05MTcwMzQ0MGY3ZDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.KqFu71wqXEBvUAYpqDHwsBvjKSr7HdmFGL2OH44SThc" width="100" class="rounded-circle">
         </div>
+        <div class="text-center mt-3">
+          <h5 class="text-gradient text-primary mt-2 mb-3">{{ gamer.username }}</h5>
+          <form action="" method="post" novalidate>
+
+            {% csrf_token %}
+
+            {{ form.as_p}}
+            <div class="buttons mt-5">
+              <input type="submit" value="Submit" class="btn btn-outline-primary px-4">
+              <a href="{% url 'wow:gamer-detail' pk=gamer.id %}" class="btn btn-dark px-4 ms-3">
+              Cancel
+              </a>
+            </div>
+          </form>
       </div>
     </div>
-
-    {% include 'includes/footer-auth.html' %}
-
   </div>
+</div>
 
-{% endblock content %}
+  {% include 'includes/footer.html' %}
+
+{% endblock %}
+
+
+
+
