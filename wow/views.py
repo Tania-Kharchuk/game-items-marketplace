@@ -77,6 +77,11 @@ class ItemUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("wow:item-list")
 
 
+class ItemDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Item
+    success_url = reverse_lazy("wow:item-list")
+
+
 class GamerListView(LoginRequiredMixin, generic.ListView):
     model = Gamer
     context_object_name = "gamer_list"
