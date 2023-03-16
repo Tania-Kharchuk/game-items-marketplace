@@ -65,6 +65,12 @@ class ItemDetailView(LoginRequiredMixin, generic.DetailView):
     queryset = Item.objects.select_related("owner", "type", "interaction_type")
 
 
+class ItemCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Item
+    fields = "__all__"
+    success_url = reverse_lazy("wow:item-list")
+
+
 class GamerListView(LoginRequiredMixin, generic.ListView):
     model = Gamer
     context_object_name = "gamer_list"
