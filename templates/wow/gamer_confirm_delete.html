@@ -16,10 +16,12 @@
 
             {% csrf_token %}
 
-            <input type="submit" value="Delete" class="btn btn-white w-auto me-2">
-            <a href="{% url 'wow:gamer-detail' pk=gamer.id %}" class="btn btn-dark w-auto me-2">
-                Cancel
-            </a>
+            <div class="buttons mt-5">
+              <input type="submit" value="Submit" class="btn btn-light px-4">
+              <a href="{% url 'wow:gamer-detail' pk=gamer.id %}" class="btn btn-dark px-4 ms-3">
+              Cancel
+              </a>
+            </div>
           </form>
         </div>
       </div>
