@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from wow.forms import GamerCreationForm, GamerPlayableRaceClassUpdateForm
+from wow.forms import GamerCreationForm, GamerPlayableRaceClassUpdateForm, ItemSearchForm
 from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass, InteractionType
 
 
@@ -58,6 +58,37 @@ class ItemListView(LoginRequiredMixin, generic.ListView):
     context_object_name = "item_list"
     template_name = "wow/item_list.html"
     paginate_by = 10
+    queryset = Item.objects.all().select_related("type")
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ItemListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        type_id = self.request.GET.get("type", "")
+        order_by = self.request.GET.get("created_at", "")
+        context["search_form"] = ItemSearchForm(
+            initial={"name": name,
+                     "type": type_id,
+                     "owner": bool(self.request.GET.get("owner")),
+                     "created_at": order_by}
+        )
+        return context
+
+    def get_queryset(self):
+        form = ItemSearchForm(self.request.GET)
+
+        if form.is_valid():
+            queryset = self.queryset.filter(name__icontains=form.cleaned_data["name"])
+            type_id = form.cleaned_data["type"]
+            if type_id:
+                queryset = queryset.filter(type_id=type_id)
+            elif self.request.GET.get("owner"):
+                queryset = queryset.filter(owner=self.request.user)
+            order_by = form.cleaned_data.get("order_by")
+            if order_by:
+                queryset = queryset.order_by(order_by)
+            return queryset
+
+        return self.queryset
 
 
 class ItemDetailView(LoginRequiredMixin, generic.DetailView):
