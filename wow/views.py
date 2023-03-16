@@ -71,6 +71,12 @@ class ItemCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("wow:item-list")
 
 
+class ItemUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Item
+    fields = "__all__"
+    success_url = reverse_lazy("wow:item-list")
+
+
 class GamerListView(LoginRequiredMixin, generic.ListView):
     model = Gamer
     context_object_name = "gamer_list"
