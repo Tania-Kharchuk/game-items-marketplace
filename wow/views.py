@@ -98,13 +98,17 @@ class ItemDetailView(LoginRequiredMixin, generic.DetailView):
 
 class ItemCreateView(LoginRequiredMixin, generic.CreateView):
     model = Item
-    fields = "__all__"
+    fields = ["name", "description", "price", "type", "interaction_type"]
     success_url = reverse_lazy("wow:item-list")
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
 class ItemUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Item
-    fields = "__all__"
+    fields = ["name", "description", "price", "type", "interaction_type"]
     success_url = reverse_lazy("wow:item-list")
 
 
