@@ -4,47 +4,67 @@
 
     {% include 'includes/navigation.html' %}
 
-<div class="page-header align-items-start min-vh-100" style="background-image: url('{{ ASSETS_ROOT }}/img/123.jpg')">
-  <div class="container mt-7">
-    {% for gamer in gamer_list %}
-      <div class="mt-3">
-        <div class="card blur py-2 w-100 my-2 shadow-sm">
-          <div class="row align-items-center">
-            <div class="col-12 col-md-1 text-center">
-              {{ gamer.id }}
-            </div>
-            <div class="col-12 col-md-4">
-              <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
-                {{ gamer.username}}
-              </h4>
-            </div>
-            <ul class="list-unstyled mb-0 col-12 col-md-3 text-dark-l1 text-100 my-4 my-md-0">
-              <li >
-                <span> Faction:
-                {{ gamer.playable_race.faction }}
-                </span>
-              </li>
-              <li>
-                <span> Playable race:
-                {{ gamer.playable_race.name}}
-                </span>
-              </li>
-              <li>
-                <span> Playable class:
-                {{ gamer.playable_class.name}}
-                </span>
-              </li>
-            </ul>
-            <div class="col-12 col-md-4 text-center">
-              <a href="{% url 'wow:gamer-detail' pk=gamer.id %}" class="f-n-hover btn btn-primary btn-raised px-4 py-25 w-75 text-600">Details</a>
-            </div>
+<div class="container mt-7">
+  <div class="row d-flex justify-content-center">
+  <div class="col-md-9">
+      <div class="card py-2 w-100 my-2">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-1 text-center">
+            #
+          </div>
+          <div class="col-12 col-md-4">
+            <h4 class="pt-3 text-primary letter-spacing">
+              Username
+            </h4>
+          </div>
+          <div class="col-12 col-md-4">
+            <span class="pt-3 text-dark-l1">
+              Characteristics
+            </span>
+          </div>
+          <div class="col-12 col-md-3 text-center">
+
           </div>
         </div>
       </div>
-    {% endfor %}
-  </div>
+    </div>
+  {% for gamer in gamer_list %}
+    <div class="col-md-9">
+      <div class="card py-2 w-100 my-2">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-1 text-center">
+            {{ gamer.id }}
+          </div>
+          <div class="col-12 col-md-4">
+            <h4 class="pt-3 text-primary-d1 letter-spacing">
+              {{ gamer.username}}
+            </h4>
+          </div>
+          <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-100 my-4 my-md-0">
+            <li >
+              <span> Faction:
+              {{ gamer.playable_race.faction }}
+              </span>
+            </li>
+            <li>
+              <span> Playable race:
+              {{ gamer.playable_race.name}}
+              </span>
+            </li>
+            <li>
+              <span> Playable class:
+              {{ gamer.playable_class.name}}
+              </span>
+            </li>
+          </ul>
+          <div class="col-12 col-md-3 text-center">
+            <a href="{% url 'wow:gamer-detail' pk=gamer.id %}" class="btn btn-outline-primary btn-raised px-4 py-25 w-75">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 </div>
-
-  {% include 'includes/footer-auth.html' %}
+</div>
 
 {% endblock %}
