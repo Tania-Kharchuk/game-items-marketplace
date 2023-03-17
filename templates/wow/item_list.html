@@ -27,7 +27,11 @@
                   {% for item in item_list %}
                     <tr>
                       <td class="text-nowrap align-middle text-center">{{ item.id }} </td>
-                      <td class="text-nowrap align-middle">{{ item.name }} </td>
+                      <td class="text-nowrap align-middle">
+                        <a href="{% url 'wow:item-detail' pk=item.pk %}">
+                          {{ item.name }}
+                        </a>
+                      </td>
                       <td class="text-nowrap align-middle text-center">{{ item.type }}</td>
                       <td class="text-nowrap align-middle text-center">{{ item.price }}</td>
                       <td class="text-nowrap align-middle"><span>{{ item.created_at }}</span></td>
