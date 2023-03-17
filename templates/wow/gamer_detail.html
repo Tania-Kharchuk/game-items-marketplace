@@ -45,7 +45,7 @@
             <div class="col-12 col-md-3">
             </div>
             <div class="col-12 col-md-4 text-center">
-              <a href="{% url 'wow:item-create' %}" class="btn btn-outline-primary px-3">
+              <a href="{% url 'wow:item-create' %}" class="btn btn-outline-primary px-4">
                 Create new item
               </a>
             </div>
@@ -97,7 +97,7 @@
               </a>
             </div>
           {% else %}
-            <div class="col-12 col-md-3 text-center">
+            <div class="col-12 col-md-4 text-center">
               <a href="{% url 'wow:item-detail' pk=item.id %}" class="f-n-hover btn btn-outline-dark btn-raised px-4 py-25 w-75">Details</a>
             </div>
           {% endif %}
