@@ -28,7 +28,7 @@ class Gamer(AbstractUser):
         PlayableClass,
         on_delete=models.CASCADE,
         blank=True,
-        null=True
+        null=True,
     )
 
     def __str__(self):
@@ -36,7 +36,7 @@ class Gamer(AbstractUser):
 
 
 class ItemType(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
         return self.name
