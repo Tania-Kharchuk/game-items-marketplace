@@ -10,7 +10,7 @@ from wow.models import (PlayableRace,
 
 
 @admin.register(Gamer)
-class DriverAdmin(UserAdmin):
+class GamerAdmin(UserAdmin):
     list_display = UserAdmin.list_display + (
         "playable_race", "playable_class",
     )
@@ -25,7 +25,7 @@ class DriverAdmin(UserAdmin):
                     )
                 }
             ),
-        ),
+        )
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
         (
