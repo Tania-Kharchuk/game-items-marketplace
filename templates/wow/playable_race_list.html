@@ -1,10 +1,7 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-  {% include 'includes/navigation.html' %}
-
-<section class="my-5 py-5">
+{% include 'includes/navigation.html' %}
+<div class="mt-7">
   <div class="container">
     <div class="row">
       <div class="row justify-content-center text-center my-sm-5">
@@ -26,7 +23,7 @@
         <div class="row">
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/alliance.jpg" alt="features">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/alliance.jpg" alt="alliance">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Crest of the Alliance</h6>
@@ -34,7 +31,7 @@
           </div>
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/nelf.jpg" alt="features">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/nelf.jpg" alt="night elf">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Night Elf</h6>
@@ -42,7 +39,7 @@
           </div>
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/draenei.jpg" alt="features">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/draenei.jpg" alt="draenei">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Draenei</h6>
@@ -50,7 +47,7 @@
           </div>
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/pandaren.jpg" alt="features">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/pandaren.jpg" alt="pandaren">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Pandaren</h6>
@@ -58,7 +55,7 @@
           </div>
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/worgen.jpg" alt="features">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/worgen.jpg" alt="worgen">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Worgen</h6>
@@ -66,7 +63,7 @@
           </div>
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/gnom.jpg" alt="features">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/gnom.jpg" alt="gnom">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Gnome</h6>
@@ -74,7 +71,7 @@
           </div>
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/human.jpg" alt="hero">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/human.jpg" alt="human">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Human</h6>
@@ -82,94 +79,92 @@
           </div>
           <div class="col-md-3 mt-md-0 mt-4">
             <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/dwaff.jpg" alt="features">
+              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/dwaff.jpg" alt="dwaff">
             </div>
             <div class="mt-2 ms-2">
               <h6 class="mb-0">Dwarf</h6>
             </div>
           </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="position-sticky pb-lg-5 pb-3 mt-lg-0 mt-5 ps-2" style="top: 100px">
-          <h3>FOR THE HORDE</h3>
-          <h6 class="text-secondary font-weight-normal pe-3">The indomitable Horde is driven by unity. They are fervent keepers of freedom and hope, relentlessly opposed to any who threaten these ideals, including the stringent Alliance.</h6>
         </div>
       </div>
-      <div class="col-lg-9">
-        <div class="row mt-3">
-          <div class="col-md-3 mt-md-0 mt-4">
-            <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/horde.jpg" alt="avatars">
-            </div>
-            <div class="mt-2 ms-2">
-              <h6 class="mb-0">Banner of the Horde</h6>
-            </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="position-sticky pb-lg-5 pb-3 mt-lg-0 mt-5 ps-2" style="top: 100px">
+            <h3>FOR THE HORDE</h3>
+            <h6 class="text-secondary font-weight-normal pe-3">The indomitable Horde is driven by unity. They are fervent keepers of freedom and hope, relentlessly opposed to any who threaten these ideals, including the stringent Alliance.</h6>
           </div>
-          <div class="col-md-3 mt-md-0 mt-4">
-            <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/tauren.jpg" alt="avatars">
-            </div>
-            <div class="mt-2 ms-2">
-              <h6 class="mb-0">Tauren</h6>
-            </div>
-          </div>
-          <div class="col-md-3 mt-md-0 mt-4">
-            <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/belf.jpg" alt="avatars">
-            </div>
-            <div class="mt-2 ms-2">
-              <h6 class="mb-0">Blood Elf</h6>
-            </div>
-          </div>
-          <div class="col-md-3 mt-md-0 mt-4">
+        </div>
+        <div class="col-lg-9">
+          <div class="row mt-3">
+            <div class="col-md-3 mt-md-0 mt-4">
               <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/undead.jpg" alt="avatars">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/horde.jpg" alt="horde">
+              </div>
+              <div class="mt-2 ms-2">
+                <h6 class="mb-0">Banner of the Horde</h6>
+              </div>
+            </div>
+            <div class="col-md-3 mt-md-0 mt-4">
+              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/tauren.jpg" alt="tauren">
+              </div>
+              <div class="mt-2 ms-2">
+                <h6 class="mb-0">Tauren</h6>
+              </div>
+            </div>
+            <div class="col-md-3 mt-md-0 mt-4">
+              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/belf.jpg" alt="blood elf">
+              </div>
+              <div class="mt-2 ms-2">
+                <h6 class="mb-0">Blood Elf</h6>
+              </div>
+            </div>
+            <div class="col-md-3 mt-md-0 mt-4">
+              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/undead.jpg" alt="undead">
               </div>
               <div class="mt-2 ms-2">
                 <h6 class="mb-0">Undead</h6>
               </div>
-          </div>
-          <div class="col-md-3 mt-md-0 mt-4">
-            <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/troll.jpg" alt="avatars">
             </div>
-            <div class="mt-2 ms-2">
-              <h6 class="mb-0">Troll</h6>
-            </div>
-          </div>
-          <div class="col-md-3 mt-md-0 mt-4">
-            <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/pandaren.jpg" alt="features">
-            </div>
-            <div class="mt-2 ms-2">
-              <h6 class="mb-0">Pandaren</h6>
-            </div>
-          </div>
-          <div class="col-md-3 mt-md-0 mt-4">
-            <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-              <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/goblin.jpg" alt="avatars">
-            </div>
-            <div class="mt-2 ms-2">
-              <h6 class="mb-0">Goblin</h6>
-            </div>
-          </div>
-          <div class="col-md-3">
+            <div class="col-md-3 mt-md-0 mt-4">
               <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
-                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/orc.jpg" alt="buttons">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/troll.jpg" alt="troll">
+              </div>
+              <div class="mt-2 ms-2">
+                <h6 class="mb-0">Troll</h6>
+              </div>
+            </div>
+            <div class="col-md-3 mt-md-0 mt-4">
+              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/pandaren.jpg" alt="pandaren">
+              </div>
+              <div class="mt-2 ms-2">
+                <h6 class="mb-0">Pandaren</h6>
+              </div>
+            </div>
+            <div class="col-md-3 mt-md-0 mt-4">
+              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/goblin.jpg" alt="goblin">
+              </div>
+              <div class="mt-2 ms-2">
+                <h6 class="mb-0">Goblin</h6>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card shadow-lg move-on-hover min-height-160 min-height-160">
+                <img class="w-100 my-auto" src="{{ ASSETS_ROOT }}/img/orc.jpg" alt="orc">
               </div>
               <div class="mt-2 ms-2">
                 <h6 class="mb-0">Orc</h6>
               </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
-</section>
-
-  {% include 'includes/footer.html' %}
-
+</div>
+{% include 'includes/footer.html' %}
 {% endblock %}
