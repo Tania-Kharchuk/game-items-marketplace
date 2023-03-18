@@ -3,7 +3,10 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from wow.forms import GamerCreationForm, GamerPlayableRaceClassUpdateForm, ItemSearchForm, ItemForm
+from wow.forms import (GamerCreationForm,
+                       GamerPlayableRaceClassUpdateForm,
+                       ItemSearchForm,
+                       ItemForm)
 from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass
 
 
@@ -70,7 +73,9 @@ class ItemListView(LoginRequiredMixin, generic.ListView):
         form = ItemSearchForm(self.request.GET)
 
         if form.is_valid():
-            queryset = self.queryset.filter(name__icontains=form.cleaned_data["name"])
+            queryset = self.queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
             type_id = form.cleaned_data["type"]
             if type_id:
                 queryset = queryset.filter(type_id=type_id)
