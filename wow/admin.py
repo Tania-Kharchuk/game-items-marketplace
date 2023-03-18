@@ -1,14 +1,31 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from wow.models import (PlayableRace, PlayableClass, ItemType, Item, Gamer, InteractionType)
+from wow.models import (PlayableRace,
+                        PlayableClass,
+                        ItemType,
+                        Item,
+                        Gamer,
+                        InteractionType)
 
 
 @admin.register(Gamer)
 class DriverAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("playable_race", "playable_class",)
+    list_display = UserAdmin.list_display + (
+        "playable_race", "playable_class",
+    )
     fieldsets = UserAdmin.fieldsets + (
-        (("Additional info", {"fields": ("playable_race", "playable_class",)}),)
+        (
+            (
+                "Additional info",
+                {
+                    "fields": (
+                        "playable_race",
+                        "playable_class",
+                    )
+                }
+            ),
+        ),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
         (
