@@ -3,15 +3,15 @@ from django.db import models
 
 
 class PlayableRace(models.Model):
-    name = models.CharField(max_length=255)
-    faction = models.CharField(max_length=255)
+    name = models.CharField(max_length=50)
+    faction = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
 
 
 class PlayableClass(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
@@ -36,21 +36,21 @@ class Gamer(AbstractUser):
 
 
 class ItemType(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class InteractionType(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=50)
     description = models.TextField()
     owner = models.ForeignKey(Gamer, on_delete=models.CASCADE, related_name="items")
     price = models.DecimalField(max_digits=4, decimal_places=2)
