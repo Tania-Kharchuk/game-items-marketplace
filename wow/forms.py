@@ -40,7 +40,9 @@ class ItemSearchForm(forms.Form):
         widget=forms.TextInput(attrs={"placeholder": "Name"})
     )
     type = forms.ChoiceField(
-        choices=[("", "All")] + [(type.id, type.name) for type in ItemType.objects.all()],
+        choices=[("", "All")] + [
+            (type.id, type.name) for type in ItemType.objects.all()
+        ],
         required=False,
         label="",
     )
