@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.core.validators import MinValueValidator
 
-from wow.models import Gamer, PlayableRace, PlayableClass, ItemType
+from wow.models import Gamer, ItemType, Item
 
 
 class GamerCreationForm(UserCreationForm):
@@ -14,6 +15,21 @@ class GamerPlayableRaceClassUpdateForm(forms.ModelForm):
     class Meta:
         model = Gamer
         fields = ["playable_race", "playable_class"]
+
+
+class PositiveDecimalFormField(forms.DecimalField):
+    def widget_attrs(self, widget):
+        attrs = super().widget_attrs(widget)
+        attrs['min'] = 0
+        return attrs
+
+
+class ItemForm(forms.ModelForm):
+    price = PositiveDecimalFormField(validators=[MinValueValidator(0)])
+
+    class Meta:
+        model = Item
+        fields = ["name", "description", "price", "type", "interaction_type"]
 
 
 class ItemSearchForm(forms.Form):

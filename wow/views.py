@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from wow.forms import GamerCreationForm, GamerPlayableRaceClassUpdateForm, ItemSearchForm
-from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass, InteractionType
+from wow.forms import GamerCreationForm, GamerPlayableRaceClassUpdateForm, ItemSearchForm, ItemForm
+from wow.models import Gamer, Item, ItemType, PlayableRace, PlayableClass
 
 
 def index(request):
@@ -39,18 +39,11 @@ class PlayableClassListView(generic.ListView):
     template_name = "wow/playable_class_list.html"
 
 
-class ItemTypeListView(LoginRequiredMixin, generic.ListView):
+class ItemTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = ItemType
-    context_object_name = "item_type_list"
-    template_name = "wow/item_type_list.html"
-    paginate_by = 10
-
-
-class InteractionTypeListView(LoginRequiredMixin, generic.ListView):
-    model = InteractionType
-    context_object_name = "interaction_type_list"
-    template_name = "wow/interaction_type_list.html"
-    paginate_by = 10
+    fields = "__all__"
+    template_name = "wow/item_type_form.html"
+    success_url = reverse_lazy("wow:item-create")
 
 
 class ItemListView(LoginRequiredMixin, generic.ListView):
@@ -98,7 +91,7 @@ class ItemDetailView(LoginRequiredMixin, generic.DetailView):
 
 class ItemCreateView(LoginRequiredMixin, generic.CreateView):
     model = Item
-    fields = ["name", "description", "price", "type", "interaction_type"]
+    form_class = ItemForm
     success_url = reverse_lazy("wow:item-list")
 
     def form_valid(self, form):
