@@ -6,6 +6,11 @@ from wow.models import Gamer, ItemType, Item
 
 
 class GamerCreationForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        for field_name in ["username", "password1", "password2"]:
+            self.fields[field_name].help_text = None
+
     class Meta(UserCreationForm.Meta):
         model = Gamer
         fields = UserCreationForm.Meta.fields
