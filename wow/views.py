@@ -17,14 +17,10 @@ def index(request):
     num_items = Item.objects.count()
     num_item_types = ItemType.objects.count()
 
-    num_visits = request.session.get("num_visits", 0)
-    request.session["num_visits"] = num_visits + 1
-
     context = {
         "num_gamers": num_gamers,
         "num_items": num_items,
         "num_item_types": num_item_types,
-        "num_visits": num_visits + 1,
     }
 
     return render(request, "wow/index.html", context=context)
