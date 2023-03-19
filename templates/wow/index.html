@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="{{ ASSETS_ROOT }}/img/favicon.png">
-    <title>
-      World of Warcraft Items Marketplace
-    </title>
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-    <!-- Nucleo Icons -->
-    <link href="{{ ASSETS_ROOT }}/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="{{ ASSETS_ROOT }}/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <!-- CSS Files -->
-    <link id="pagestyle" href="{{ ASSETS_ROOT }}/css/material-kit.css?v=3.0.0" rel="stylesheet" />
-  </head>
+{% extends "base.html" %}
+{% block content %}
   <body class="presentation-page bg-gray-200">
     {% include 'includes/navigation.html' %}
     <header class="header-2">
@@ -130,4 +111,4 @@
       }
     </script>
   </body>
-</html>
+{% endblock content %}
