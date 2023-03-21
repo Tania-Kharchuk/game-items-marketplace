@@ -11,7 +11,7 @@ class PlayableRace(models.Model):
 
 
 class PlayableClass(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=55, unique=True)
 
     def __str__(self):
         return self.name
@@ -50,7 +50,7 @@ class InteractionType(models.Model):
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=55)
     description = models.TextField()
     owner = models.ForeignKey(
         Gamer,
