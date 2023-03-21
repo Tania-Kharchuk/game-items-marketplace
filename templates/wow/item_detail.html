@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'includes/navigation.html' %}
+<div class="container mt-8">
+  <div class="row flex-lg-nowrap">
+    <div class="col-12 col-lg-5 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="{{ ASSETS_ROOT }}/img/item.jpg" alt="item" width="100">
+          </div>
+          <div class="text-center px-xl-3 mt-3">
+            <h3 class="text-gradient text-primary mt-2 mb-3">{{ item.name }}</h3>
+          </div>
+          <div class="buttons mt-5 text-center">
+            <a href="{% url 'wow:item-list' %}" class="btn btn-outline-primary px-4">
+            BACK TO ITEM LIST
+            </a>
+            <a href="{% url 'wow:gamer-detail' pk=item.owner.id%}" class="btn btn-outline-secondary px-4 ms-3">
+            ALL ITEMS OF THIS OWNER
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-7 mb-3">
+      <div class="e-panel card">
+        <div class="card-body">
+          <div class="e-table">
+            <div class="table-responsive table-lg mt-2">
+              <table class="table table-striped">
+                <tr>
+                  <th class="text-primary">PRICE</th>
+                  <td>{{ item.price }}</td>
+                </tr>
+                <tr>
+                  <th class="text-primary">TYPE</th>
+                  <td>{{ item.type }}</td>
+                </tr>
+                <tr>
+                  <th class="text-primary">CREATION DATE</th>
+                  <td><span>{{ item.created_at }}</span></td>
+                </tr>
+                <tr>
+                  <th class="text-primary">OWNER</th>
+                  <td>{{ item.owner }}</td>
+                </tr>
+                <tr>
+                  <th class="text-primary">INTERACTION TYPE</th>
+                  <td>{{ item.interaction_type }}</td>
+                <tr>
+                  <th class="text-primary">DESCRIPTION</th>
+                  <td class="text-wrap max-width-100">{{ item.description }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

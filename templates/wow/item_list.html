@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+{% include 'includes/navigation.html' %}
+<div class="container mt-8">
+  <div class="row flex-lg-nowrap">
+    <div class="col mb-3">
+      <div class="e-panel card">
+        <div class="card-body">
+          <div class="e-table">
+            <div class="table-responsive table-lg mt-2">
+              <table class="table table-striped">
+                <thead class="text-primary">
+                  <tr class="text-center">
+                    <th>#</th>
+                    <th>NAME</th>
+                    <th>TYPE</th>
+                    <th>PRICE</th>
+                    <th>CREATION DATE</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for item in item_list %}
+                  <tr>
+                    <td class="text-nowrap align-middle text-center">{{ item.id }} </td>
+                    <td class="text-wrap align-middle">
+                      <a href="{% url 'wow:item-detail' pk=item.pk %}">
+                      {{ item.name }}
+                      </a>
+                    </td>
+                    <td class="text-wrap align-middle text-center">{{ item.type }}</td>
+                    <td class="text-wrap align-middle text-center">{{ item.price }}</td>
+                    <td class="text-nowrap align-middle"><span>{{ item.created_at }}</span></td>
+                    <td class="text-center align-middle">
+                      {% if item.owner.id == user.id %}
+                      <div class="btn-group mt-1">
+                        <a href="{% url 'wow:item-update' pk=item.pk %}" class="btn btn-outline-secondary px-2">
+                        Update
+                        </a>
+                        <a href="{% url 'wow:item-delete' pk=item.pk %}" class="btn btn-outline-primary px-2">
+                        <i class="fa fa-trash"></i>
+                        </a>
+                      </div>
+                      {% else %}
+                      <div class="btn-group mt-1">
+                        <a href="{% url 'wow:item-detail' pk=item.pk %}" class="btn btn-outline-secondary px-4">
+                        Details
+                        </a>
+                      </div>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center px-xl-3">
+            <a href="{% url 'wow:item-create' %}" class="btn btn-outline-primary px-4">
+            Create new item
+            </a>
+          </div>
+          <hr class="my-3">
+          <div class="form-group">
+            <form action="" method="get" class="form-group">
+              <span class="badge bg-gradient-faded-dark mb-3">Search by type:</span>
+              {{ search_form.type|as_crispy_field }}
+              <hr class="my-3">
+              <span class="badge bg-gradient-faded-secondary mb-3">Search by name:</span>
+              {{ search_form.name|as_crispy_field }}
+              <hr class="my-3">
+              <span class="badge bg-gradient-faded-primary mb-3">Order by creation date:</span>
+              {{ search_form.created_at|as_crispy_field}}
+              <hr class="my-3">
+              {{ search_form.owner|as_crispy_field}}
+              <div class="text-center">
+                <input class="btn btn-primary" type="submit" value="Search">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

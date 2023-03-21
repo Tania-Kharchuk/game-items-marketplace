@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'includes/navigation.html' %}
+<div class="container mt-8">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+      <div class="card p-3 py-4">
+        <div class="text-center">
+          <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3b4e7cc7-bd82-461e-bb62-dabd45a1f8c3/d4uye6s-b136850a-21b1-493a-ab4a-91703440f7d6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNiNGU3Y2M3LWJkODItNDYxZS1iYjYyLWRhYmQ0NWExZjhjM1wvZDR1eWU2cy1iMTM2ODUwYS0yMWIxLTQ5M2EtYWI0YS05MTcwMzQ0MGY3ZDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.KqFu71wqXEBvUAYpqDHwsBvjKSr7HdmFGL2OH44SThc" alt="gamer" width="100" class="rounded-circle">
+        </div>
+        <div class="text-center mt-3">
+          <h5 class="text-gradient text-primary mt-2 mb-3">{{ gamer.username }}</h5>
+          <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{ form.as_p}}
+            <div class="buttons mt-5">
+              <input type="submit" value="Submit" class="btn btn-outline-primary px-4">
+              <a href="{% url 'wow:gamer-detail' pk=gamer.id %}" class="btn btn-dark px-4 ms-3">
+              Cancel
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'includes/footer.html' %}
+{% endblock %}
